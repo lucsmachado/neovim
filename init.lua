@@ -43,6 +43,11 @@ P.S. You can delete this when you're done too. It's your config now :)
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
+-- WSL-specific config for the `gx` command to work
+--  See `:help netrw-gx` for more info
+--    https://superuser.com/a/1317266
+vim.g.netrw_browsex_viewer = 'cmd.exe /C start'
+
 -- Install package manager
 --    https://github.com/folke/lazy.nvim
 --    `:help lazy.nvim.txt` for more info
@@ -68,7 +73,9 @@ require('lazy').setup({
   -- NOTE: First, some plugins that don't require any configuration
 
   -- Git related plugins
+  -- `:Git` followed by any git command
   'tpope/vim-fugitive',
+  -- `:GBrowse` to open GitHub (specify line range with visual mode)
   'tpope/vim-rhubarb',
 
   -- Detect tabstop and shiftwidth automatically
