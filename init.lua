@@ -201,6 +201,7 @@ require('lazy').setup({
     'nvim-treesitter/nvim-treesitter',
     dependencies = {
       'nvim-treesitter/nvim-treesitter-textobjects',
+      'windwp/nvim-ts-autotag',
     },
     build = ':TSUpdate',
   },
@@ -217,7 +218,7 @@ require('lazy').setup({
   --    Uncomment the following line and add your plugins to `lua/custom/plugins/*.lua` to get going.
   --
   --    For additional information see: https://github.com/folke/lazy.nvim#-structuring-your-plugins
-  -- { import = 'custom.plugins' },
+  { import = 'custom.plugins' },
 }, {})
 
 -- [[ Setting options ]]
@@ -343,6 +344,7 @@ require('nvim-treesitter.configs').setup {
   -- Autoinstall languages that are not installed. Defaults to false (but you can change for yourself!)
   auto_install = false,
 
+  autotag = { enable = true },
   highlight = { enable = true },
   indent = { enable = true },
   incremental_selection = {
