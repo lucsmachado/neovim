@@ -43,6 +43,13 @@ P.S. You can delete this when you're done too. It's your config now :)
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
+
+-- Configure Copilot to assume mappings are already set
+-- remove default tab mapping
+-- configure <C-J> to accept the suggestion
+vim.g.copilot_assume_mapped = true
+vim.g.copilot_no_tab_map = true
+vim.api.nvim_set_keymap("i", "<C-J>", 'copilot#Accept("<CR>")', { silent = true, expr = true })
 -- WSL-specific config for the `gx` command to work
 --  See `:help netrw-gx` for more info
 --    https://superuser.com/a/1317266
