@@ -327,6 +327,8 @@ require('lazy').setup({
   --
   --    For additional information see: https://github.com/folke/lazy.nvim#-structuring-your-plugins
   { import = 'custom.plugins' },
+  { 'prisma/vim-prisma' },
+  { 'gleam-lang/gleam.vim' }
 }, {})
 
 -- [[ Setting options ]]
@@ -635,6 +637,7 @@ local servers = {
   cssls = {},
   eslint = {},
   stylelint_lsp = {},
+  prismals = { filetypes = { 'prisma' } },
 
   lua_ls = {
     Lua = {
