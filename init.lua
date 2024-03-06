@@ -28,6 +28,9 @@ I hope you enjoy your Neovim journey,
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
+-- Flag to configure other plugins that required a Nerd Font
+vim.g.have_nerd_font = true
+
 -- Configure Copilot to assume mappings are already set
 -- remove default tab mapping
 -- configure <C-J> to accept the suggestion
@@ -283,6 +286,7 @@ require('lazy').setup({
   -- Fuzzy Finder (files, lsp, etc)
   {
     'nvim-telescope/telescope.nvim',
+    event = 'VimEnter',
     branch = '0.1.x',
     dependencies = {
       'nvim-lua/plenary.nvim',
@@ -298,6 +302,9 @@ require('lazy').setup({
           return vim.fn.executable 'make' == 1
         end,
       },
+
+      -- Pretty icons, but requires a Nerd Font
+      { 'nvim-tree/nvim-web-devicons', enabled = vim.g.have_nerd_font },
     },
   },
 
@@ -326,7 +333,9 @@ require('lazy').setup({
   { import = 'custom.plugins' },
   { 'prisma/vim-prisma' },
   { 'gleam-lang/gleam.vim' }
-}, {})
+}, {
+  ui = vim.g.have_nerd_font and {},
+})
 
 -- [[ Setting options ]]
 -- See `:help vim.o`
